@@ -1,73 +1,64 @@
-# React + TypeScript + Vite
+# Damascus Translation Services
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Damascus Translation Services is a lightweight project and documentation hub for a professional language services provider based in Damascus. This repository contains information about the service offerings, supported languages, workflows, and contact details for clients and contributors.
 
-Currently, two official plugins are available:
+## Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Professional human translation and proofreading
+- Certified translation for legal and official documents
+- Specialized translators for technical, medical, legal, and marketing content
+- Fast turnaround and project management for teams
+- Secure handling and confidentiality of client materials
 
-## React Compiler
+## Services
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Document translation (certified and non-certified)
+- Proofreading and editing
+- Localization for websites, apps, and software
+- Transcription and subtitling
+- Interpretation (onsite and remote)
 
-## Expanding the ESLint configuration
+## Supported Languages
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Primary languages include:
+- Arabic (Syrian dialect and Modern Standard Arabic)
+- English
+- French
+- Turkish
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Additional languages and dialects available on request.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## How to Get Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. Prepare the files you need translated (DOCX, PDF, TXT, SRT, etc.).
+2. Contact the project team with project details: source & target languages, word count, deadline, and any special instructions.
+3. Receive a quote and estimated delivery time.
+4. Provide approval and payment to begin work.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## For Developers / Integrations
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+This repository can be extended to include:
+- API clients for submitting translation jobs
+- Automated quoting and job-tracking webhooks
+- Localization string extraction tools for software projects
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Suggested commands for local development (example scaffolding):
+- Install dependencies: composer install / npm install
+- Run local server: php -S localhost:8000 (or framework-specific command)
+
+(Adjust commands according to the implementation in this repository.)
+
+## Contributing
+
+Contributions are welcome for documentation, sample workflows, and tools that improve delivery and automation. Please open issues or pull requests with a clear description of changes.
+
+## Contact
+
+For inquiries, quotes, or support:
+- Email: jalalaljabri63@gmail.com
+- Website: https://damascus-translation-ser-95c5a.firebaseapp.com/
+- Phone / WhatsApp: +967-772021521
+
+## License
+
+Unless otherwise specified, documentation and tooling in this repository are available under the MIT License.
