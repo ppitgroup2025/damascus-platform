@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Damascus Translation Services</title>
+    <!-- linking arabic version-->
+    <link rel="alternate" hreflang="en" href="index.html" />
+    <link rel="alternate" hreflang="ar" href="indexAr.html" />
+    <link rel="alternate" hreflang="x-default" href="index.html" />
+    <link rel="icon" type="image/png" href="/assets/images/circle.png" />
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+
+  <body class="bg-white">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-3" href="#">
+          <img
+            src="/assets/images/text.png"
+            alt="Logo"
+            width="80"
+            height="80"
+            style="object-fit: cover"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse flex-grow-0" id="navbarNav">
+          <!-- CORRECTION 1: Used "ms-auto" to push the list of links to the right. -->
+          <ul class="navbar-nav ms-auto align-items-center gap-2">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/subpages/about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="indexAr.html">AR</a>
+              <!-- MODIFIED: User nav now contains the avatar and a nested dropdown menu -->
+            </li>
+
+            <li
+              class="nav-item"
+              id="user-nav"
+              style="display: none; position: relative"
+            >
+              <!-- This is the clickable avatar -->
+              <div
+                id="user-avatar"
+                class="user-avatar-circle"
+                style="cursor: pointer"
+              ></div>
+
+              <!-- This is the dropdown menu, which is hidden by default -->
+              <div id="user-dropdown-menu" class="user-dropdown">
+                <div id="dropdown-user-email" class="dropdown-email"></div>
+                <button id="logout-button" class="btn btn-outline-danger w-100">
+                  Log Out
+                </button>
+              </div>
+            </li>
+            <li class="nav-item" id="auth-toggle-li">
+              <button id="auth-toggle" class="btn btn-outline-primary">
+                Sign Up / Log In
+              </button>
+            </li>
+            <li class="nav-item">
+              <a href="subpages/quotation.html" class="btn btn-primary px-4 py-2 fw-bold quote-slide-btn" id="quoteSlideBtn">Get  Quote</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- The content-wrapper div has been removed from around this entire block -->
+
+    <section class="hero-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 mb-4 mb-lg-0 hero-text-col">
+            <h1 class="display-4 fw-bold mb-3">
+              Delevering Quality Translation Services
+            </h1>
+            <p class="lead mb-4">
+              Damascus Translation Office delivers certified multilingual translations for businesses, NGOs, and government entities. Our Yemen-based team of expert translators specializes in
+            </p>
+            <ul class="list-unstyled mb-4">
+              <li class="mb-2">
+                <i class="fas fa-check-circle me-2 text-success"></i>
+                Legal & Financial Documents
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-check-circle me-2 text-success"></i>
+                Medical & Technical Manuals
+              </li>
+                <li class="mb-2">
+                <i class="fas fa-check-circle me-2 text-success"></i>
+                Marketing & Academic Materials
+                </li>
+                <li class="mb-2">
+                <i class="fas fa-check-circle me-2 text-success"></i>
+                Media Localization & Subtitling
+                </li>
+                <li class="mb-2">
+                <i class="fas fa-check-circle me-2 text-success"></i>
+                Conference Interpretation
+                </li>
+            </ul>
+            
+            <a href="subpages/quotation.html" class="btn btn-primary px-4 py-2 fw-bold">Get a Quote</a>
+          </div>
+          <div class="col-lg-6 text-center">
+            <img
+              src="/assets/images/4.jpg"
+              class="img-fluid hero-image"
+              alt="Translation Illustration"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="services-section">
+      <div class="container">
+        <h2 class="section-title">Our Translation Services</h2>
+        <div class="row g-4">
+          <!-- Card 1: Translation & Language Services -->
+          <div class="col-md-4">
+            
+              <div class="service-card">
+                <div class="service-icon">
+                  <i class="fas fa-file-alt"></i>
+                </div>
+                <h3 class="service-title">Professional Document Translation</h3>
+                <p>
+                  - Certified Translation<br />
+                  - Professional Translation<br />
+                  - Technical Translation
+                </p>
+                <!-- START: NEW BUTTON ELEMENT -->
+  <a href="/subpages/translations.html" class="service-card-cta">
+    <span>More</span>
+    <i class="fas fa-arrow-right"></i>
+  </a>
+  <!-- END: NEW BUTTON ELEMENT -->
+              </div>
+            
+          </div>
+
+          <!-- Card 2: Expert Interpretation Services -->
+          <div class="col-md-4">
+            
+              <div class="service-card">
+                <div class="service-icon">
+                  <i class="fas fa-headset"></i> <!-- Changed to headset icon -->
+                </div>
+                <h3 class="service-title">Expert Interpretation Services</h3>
+                <p>
+                  - Simultaneous<br />
+                  - Consecutive<br />
+                  - Remote Interpretation
+                </p>
+                <!-- START: NEW BUTTON ELEMENT -->
+  <a href="/subpages/localizations.html" class="service-card-cta">
+    <span>More</span>
+    <i class="fas fa-arrow-right"></i>
+  </a>
+  <!-- END: NEW BUTTON ELEMENT -->
+              </div>
+            
+          </div>
+
+          <!-- Card 3: Creative Language Solutions -->
+          <div class="col-md-4">
+            
+              <div class="service-card">
+                <div class="service-icon">
+                  <i class="fas fa-photo-video"></i> <!-- Changed to multimedia icon -->
+                </div>
+                <h3 class="service-title">Creative Language Solutions</h3>
+                <p>
+                  - Content Development<br />
+                  - Media Solutions<br />
+                  - Quality Enhancement
+                </p>
+                <!-- START: NEW BUTTON ELEMENT -->
+  <a href="/subpages/solutions.html" class="service-card-cta">
+    <span>More</span>
+    <i class="fas fa-arrow-right"></i>
+  </a>
+  <!-- END: NEW BUTTON ELEMENT -->
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="how-section">
+      <div class="container">
+        <h2 class="section-title">How it Works</h2>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="how-step">
+              <div class="step-icon"><i class="fas fa-upload"></i></div>
+              <div class="how-step-title">1. Upload Your Documents</div>
+              <div>
+                Send us your files online or by email. We accept all formats and
+                ensure confidentiality.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="how-step">
+              <div class="step-icon"><i class="fas fa-user-check"></i></div>
+              <div class="how-step-title">2. Get a Quote & Confirm</div>
+              <div>
+                Receive a transparent quote. Confirm your order and we’ll assign
+                a specialist translator.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="how-step">
+              <div class="step-icon">
+                <i class="fas fa-file-signature"></i>
+              </div>
+              <div class="how-step-title">3. Receive Your Translation</div>
+              <div>
+                Get your certified translation delivered digitally or by post,
+                ready for official use.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- START: NEW RESOURCES SECTION -->
+<section id="resources" class="resources-section">
+  <div class="container">
+    <h2 class="section-title">Resources</h2>
+    
+    <!-- Bootstrap Carousel for Resources -->
+    <div id="resourcesCarousel" class="carousel slide"  data-bs-interval="false">
+      <div class="carousel-inner">
+        
+        <!-- Resource Card 1 -->
+        <div class="carousel-item active">
+          <div class="resource-card">
+            <img src="/assets/images/dawha.jpg" class="resource-logo" alt="Resource Logo">
+            <h5 class="resource-name">Doha dictionary</h5>
+            <p class="resource-desc">
+              Stay updated with the latest trends, challenges, and best practices in the global translation and localization industry.
+            </p>
+            <a href="https://www.dohadictionary.org/" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <span>Visit</span>
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Resource Card 2 -->
+        <div class="carousel-item">
+          <div class="resource-card">
+            <img src="/assets/images/ryadh.jpg" class="resource-logo" alt="Resource Logo">
+            <h5 class="resource-name">Ryadh dictionary</h5>
+            <p class="resource-desc">
+              A comprehensive A-Z glossary of common and technical terms used in the translation and legal documentation fields.
+            </p>
+            <a href="https://dictionary.ksaa.gov.sa/" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <span>Visit</span>
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Resource Card 3 -->
+        <div class="carousel-item">
+          <div class="resource-card">
+            <img src="/assets/images/abu dhabi.png" class="resource-logo" alt="Resource Logo">
+            <h5 class="resource-name">Abu Dhabi Arabic Language Center</h5>
+            <p class="resource-desc">
+              a specialized digital dictionary to support digital Arabic content with the most common Arabic terms according to Arabic digital blogs
+            </p>
+            <a href="https://dictionary.alc.ae/" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <span>Visit</span>
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Custom Navigation Arrow -->
+      <!-- PREVIOUS Arrow -->
+      <button class="carousel-control-prev custom-carousel-control-prev-resources" type="button" data-bs-target="#resourcesCarousel" data-bs-slide="prev">
+        <span class="visually-hidden">Previous</span>
+      </button>
+
+      <!-- NEXT Arrow -->
+      <button class="carousel-control-next custom-carousel-control-resources" type="button" data-bs-target="#resourcesCarousel" data-bs-slide="next">
+        <span class="visually-hidden">Next</span>
+      </button>
+
+    </div>
+  </div>
+</section>
+<!-- END: NEW RESOURCES SECTION -->
+
+    <section id="contact" class="contact-section">
+  <div class="container">
+    <h2 class="section-title">Contact Us</h2>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="contact-form">
+          <form id="contactForm">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  name="user_name"
+                  required
+                />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="user_email"
+                  required
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="service" class="form-label">Service Needed</label>
+              <select class="form-select" id="service" name="user_service" required>
+                <option value="" selected disabled>Select a service</option>
+                <option>Document Translation</option>
+                <option>Creative Language Solutions</option>
+                <option>Interpretation</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Message</label>
+              <textarea
+                class="form-control"
+                id="message"
+                rows="5"
+                name="user_message"
+                required
+              ></textarea>
+            </div>
+            <!-- Message display area -->
+            <div id="contactFormMessage" class="mt-3 mb-3 text-center" style="display: none;"></div>
+            <button
+              type="submit"
+              class="btn btn-primary w-100 py-3 fw-bold"
+              id="contactSubmitBtn"
+            >
+              Send
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Modal Popup -->
+    <div id="auth-modal">
+      <div class="modal-content">
+        <button id="auth-close" class="close-btn" aria-label="Close">×</button>
+        <h2>Welcome</h2>
+        <form id="auth-form">
+          <input
+            type="email"
+            id="auth-email"
+            class="form-control mb-3"
+            placeholder="Email"
+            required
+          />
+          <input
+            type="password"
+            id="auth-password"
+            class="form-control mb-3"
+            placeholder="Password"
+            required
+          />
+          <div
+            id="auth-error"
+            style="color: red; font-size: 0.9rem; margin-bottom: 10px"
+          ></div>
+          <button
+            type="button"
+            id="signup-button"
+            class="btn btn-warning w-100 mb-3"
+          >
+            Sign Up
+          </button>
+          <button
+            type="button"
+            id="login-button"
+            class="btn btn-primary w-100 mb-3"
+          >
+            Log In
+          </button>
+        </form>
+        <hr />
+        <div class="or-text">or</div>
+        <button id="google-signin" class="google-btn">
+          <i class="fab fa-google"></i> Continue with Google
+        </button>
+      </div>
+    </div>
+    <div id="overlay" class="overlay"></div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-links">
+          <a href="#" class="footer-link">Home</a>
+          <a href="#services" class="footer-link">Services</a>
+          <a href="#how" class="footer-link">How it Works</a>
+          <a href="#testimonials" class="footer-link">Testimonials</a>
+          <a href="#faq" class="footer-link">FAQ</a>
+          <a href="#contact" class="footer-link">Contact</a>
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Terms</a>
+        </div>
+        <div class="social-icons">
+          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p class="mb-0 text-center">
+          © 2025 Damascus Translation Services. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+   <!-- Corrected script loading order -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="module" src="/js/main.js" defer></script>
+    <script type="module" src="/js/auth.js" defer></script>
+    <script type="module" src="/js/ui.js" defer></script>
+  </body>
+</html>
