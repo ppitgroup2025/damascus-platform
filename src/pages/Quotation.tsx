@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom';
 import '../styles/Quotation.css';
 import { Modal, Button, ProgressBar } from 'react-bootstrap';
 import { supabase } from '../lib/supabase';
+import { useUI } from '../contexts/UIContext';
 
 type QuoteType = 'certified' | 'professional';
 type Urgency = 'none' | 'priority';
 
 const Quotation = () => {
   const { language, t } = useLanguage();
+  const { openAuthModal } = useUI();
   const [activeTab, setActiveTab] = useState<QuoteType>('certified');
   
   // Form State
@@ -66,10 +68,11 @@ const Quotation = () => {
 
   }, [activeTab, certifiedPages, certifiedUrgency, professionalWords, professionalUrgency, language, certifiedFrom, certifiedTo, professionalFrom, professionalTo]);
 
-  const handleContinue = () => {
+  const handleContinue = async () => {
     const newErrors: {[key: string]: string} = {};
     const isCert = activeTab === 'certified';
 
+    // 1. Validation
     if (isCert) {
       if (!certifiedFiles || certifiedFiles.length === 0) newErrors.file = t('noFilesForValidation');
       if (certifiedFrom === certifiedTo) newErrors.lang = t('langMismatch');
@@ -81,16 +84,30 @@ const Quotation = () => {
     }
 
     setErrors(newErrors);
+    if (Object.keys(newErrors).length !== 0) return;
 
-    if (Object.keys(newErrors).length === 0) {
-      setShowModal(true);
+    // 2. Auth Check
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) {
+      alert(language === 'ar' ? "يرجى تسجيل الدخول أولاً لمتابعة طلبك" : "Please log in first to proceed with your request");
+      openAuthModal();
+      return;
     }
+
+    setShowModal(true);
   };
 
   const handleModalSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsUploading(true);
     setUploadProgress(0);
+
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) {
+      alert("Session expired. Please log in again.");
+      setIsUploading(false);
+      return;
+    }
 
     const filesToUpload = activeTab === 'certified' ? certifiedFiles : professionalFiles;
     const uploadedUrls: string[] = [];
@@ -104,11 +121,11 @@ const Quotation = () => {
         // Sanitize filename: remove special characters and spaces
         const asciiOnly = file.name.replace(/[^\x00-\x7F]/g, "");
         const cleanName = asciiOnly.replace(/\s+/g, '_').replace(/[^a-zA-Z0-9._-]/g, '');
-        
-        // If the name was all Arabic/Special, use 'document' as fallback
         const baseName = cleanName.split('.')[0] || 'document';
         const extension = file.name.split('.').pop() || '';
-        const fileName = `${Date.now()}_${baseName}.${extension}`;
+        
+        // IMPORTANT: Path must start with UID to match the folder RLS policy
+        const fileName = `${user.id}/${Date.now()}_${baseName}.${extension}`;
         
         const { error } = await supabase.storage
           .from('quotations')
@@ -130,6 +147,7 @@ const Quotation = () => {
     }
 
     console.log("Request Data:", {
+      userId: user.id,
       ...formData,
       type: activeTab,
       totalPrice,
@@ -142,6 +160,7 @@ const Quotation = () => {
     setShowModal(false);
     setUploadProgress(0);
   };
+
 
 
   return (
