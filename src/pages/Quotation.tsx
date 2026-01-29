@@ -100,7 +100,10 @@ const Quotation = () => {
 
       for (let i = 0; i < totalFiles; i++) {
         const file = filesToUpload[i];
-        const fileName = `${Date.now()}_${file.name}`;
+        
+        // Sanitize filename: remove special characters and spaces, keep extension
+        const cleanName = file.name.replace(/[^\x00-\x7F]/g, "").replace(/\s+/g, '_').replace(/[^a-zA-Z0-9._-]/g, '');
+        const fileName = `${Date.now()}_${cleanName || 'file'}`;
         
         const { error } = await supabase.storage
           .from('quotations')

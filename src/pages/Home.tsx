@@ -49,9 +49,9 @@ const Home = () => {
       ],
       resourcesTitle: "Resources",
       resources: [
-        { name: "Doha dictionary", desc: "Stay updated with the latest trends, challenges, and best practices in the global translation and localization industry.", link: "https://www.dohadictionary.org/", img: "/assets/images/dawha.jpg", btn: "Visit" },
-        { name: "Ryadh dictionary", desc: "A comprehensive A-Z glossary of common and technical terms used in the translation and legal documentation fields.", link: "https://dictionary.ksaa.gov.sa/", img: "/assets/images/ryadh.jpg", btn: "Visit" },
-        { name: "Abu Dhabi Arabic Language Center", desc: "A specialized digital dictionary to support digital Arabic content with the most common Arabic terms according to Arabic digital blogs", link: "https://dictionary.alc.ae/", img: "/assets/images/abu dhabi.png", btn: "Visit" }
+        { name: "Doha dictionary", desc: "Stay updated with the latest trends, challenges, and best practices in the global translation and localization industry.", link: "https://www.dohadictionary.org/", img: "/images/dawha.jpg", btn: "Visit" },
+        { name: "Ryadh dictionary", desc: "A comprehensive A-Z glossary of common and technical terms used in the translation and legal documentation fields.", link: "https://dictionary.ksaa.gov.sa/", img: "/images/ryadh.jpg", btn: "Visit" },
+        { name: "Abu Dhabi Arabic Language Center", desc: "A specialized digital dictionary to support digital Arabic content with the most common Arabic terms according to Arabic digital blogs", link: "https://dictionary.alc.ae/", img: "/images/abu dhabi.png", btn: "Visit" }
       ],
       contactTitle: "Contact Us",
       contactName: "Name",
@@ -102,9 +102,9 @@ const Home = () => {
       ],
       resourcesTitle: "المصادر",
       resources: [
-        { name: "معجم الدوحة", desc: "ابق على اطلاع بأحدث الاتجاهات والتحديات وأفضل الممارسات في صناعة الترجمة والتعريب العالمية.", link: "https://www.dohadictionary.org/", img: "/assets/images/dawha.jpg", btn: "زيارة" },
-        { name: "معجم الرياض", desc: "مسرد شامل من الألف إلى الياء للمصطلحات الشائعة والتقنية المستخدمة في مجالات الترجمة والوثائق القانونية.", link: "https://dictionary.ksaa.gov.sa/", img: "/assets/images/ryadh.jpg", btn: "زيارة" },
-        { name: "مركز أبوظبي للغة العربية", desc: "قاموس رقمي متخصص لدعم المحتوى العربي الرقمي بأكثر المصطلحات العربية شيوعًا وفقًا للمدونات الرقمية العربية", link: "https://dictionary.alc.ae/", img: "/assets/images/abu dhabi.png", btn: "زيارة" }
+        { name: "معجم الدوحة", desc: "ابق على اطلاع بأحدث الاتجاهات والتحديات وأفضل الممارسات في صناعة الترجمة والتعريب العالمية.", link: "https://www.dohadictionary.org/", img: "/images/dawha.jpg", btn: "زيارة" },
+        { name: "معجم الرياض", desc: "مسرد شامل من الألف إلى الياء للمصطلحات الشائعة والتقنية المستخدمة في مجالات الترجمة والوثائق القانونية.", link: "https://dictionary.ksaa.gov.sa/", img: "/images/ryadh.jpg", btn: "زيارة" },
+        { name: "مركز أبوظبي للغة العربية", desc: "قاموس رقمي متخصص لدعم المحتوى العربي الرقمي بأكثر المصطلحات العربية شيوعًا وفقًا للمدونات الرقمية العربية", link: "https://dictionary.alc.ae/", img: "/images/abu dhabi.png", btn: "زيارة" }
       ],
       contactTitle: "تواصل معنا",
       contactName: "الاسم",
