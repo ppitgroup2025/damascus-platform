@@ -83,6 +83,21 @@ const localizedStrings: Record<Language, LocalizedStrings> = {
       logIn: 'Log In',
       or: 'or',
       continueWithGoogle: 'Continue with Google',
+      // Quotation Modal
+      completeYourRequest: 'Complete Your Request',
+      name: 'Name',
+      email: 'Email',
+      message: 'Message',
+      cancelUpload: 'Cancel Upload',
+      sendRequest: 'Send Request',
+      requestSent: 'Your request has been sent successfully!',
+      cancel: 'Cancel',
+      english: 'English',
+      arabic: 'Arabic',
+      french: 'French',
+      german: 'German',
+      loginToProceed: 'Please log in first to proceed with your request',
+      sessionExpired: 'Session expired. Please log in again.',
     },
     ar: {
       fileSelected: (count: number) => `${count} ملف(ملفات) مختارة.`,
@@ -150,6 +165,21 @@ const localizedStrings: Record<Language, LocalizedStrings> = {
       logIn: 'تـسـجـيل دخـول',
       or: 'أو',
       continueWithGoogle: 'المتابعة عبر جوجل',
+      // Quotation Modal
+      completeYourRequest: 'أكمل طلبك',
+      name: 'الاسم',
+      email: 'البريد الإلكتروني',
+      message: 'الرسالة',
+      cancelUpload: 'إلغاء الرفع',
+      sendRequest: 'إرسال الطلب',
+      requestSent: 'تم إرسال طلبك بنجاح!',
+      cancel: 'إلغاء',
+      english: 'الإنجليزية',
+      arabic: 'العربية',
+      french: 'الفرنسية',
+      german: 'الألمانية',
+      loginToProceed: 'يرجى تسجيل الدخول أولاً لمتابعة طلبك',
+      sessionExpired: 'انتهت الجلسة. يرجى تسجيل الدخول مرة أخرى.',
     }
   };
 

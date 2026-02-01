@@ -39,6 +39,7 @@ const Quotation = () => {
   const [uploadProgress, setUploadProgress] = useState(0);
   const [isUploading, setIsUploading] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const uploadCancelled = React.useRef(false);
 
   // Effect to calculate quote
   useEffect(() => {
@@ -89,7 +90,7 @@ const Quotation = () => {
     // 2. Auth Check
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) {
-      alert(language === 'ar' ? "يرجى تسجيل الدخول أولاً لمتابعة طلبك" : "Please log in first to proceed with your request");
+      alert(t('loginToProceed'));
       openAuthModal();
       return;
     }
@@ -101,10 +102,11 @@ const Quotation = () => {
     e.preventDefault();
     setIsUploading(true);
     setUploadProgress(0);
+    uploadCancelled.current = false;
 
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) {
-      alert("Session expired. Please log in again.");
+      alert(t('sessionExpired'));
       setIsUploading(false);
       return;
     }
@@ -116,6 +118,13 @@ const Quotation = () => {
       const totalFiles = filesToUpload.length;
 
       for (let i = 0; i < totalFiles; i++) {
+        // Check if user cancelled
+        if (uploadCancelled.current) {
+          setIsUploading(false);
+          setUploadProgress(0);
+          return;
+        }
+
         const file = filesToUpload[i];
         
         // Sanitize filename: remove special characters and spaces
@@ -146,6 +155,9 @@ const Quotation = () => {
       }
     }
 
+    // Final check before finishing
+    if (uploadCancelled.current) return;
+
     console.log("Request Data:", {
       userId: user.id,
       ...formData,
@@ -155,9 +167,15 @@ const Quotation = () => {
       files: uploadedUrls
     });
 
-    alert(t('requestSent') || "Request Sent!");
+    alert(t('requestSent'));
     setIsUploading(false);
     setShowModal(false);
+    setUploadProgress(0);
+  };
+
+  const handleCancelUpload = () => {
+    uploadCancelled.current = true;
+    setIsUploading(false);
     setUploadProgress(0);
   };
 
@@ -188,19 +206,19 @@ const Quotation = () => {
                 <div className="form-group">
                   <label>{t('from')}</label>
                   <select value={certifiedFrom} onChange={(e) => setCertifiedFrom(e.target.value)}>
-                    <option value="English">English</option>
-                    <option value="Arabic">Arabic</option>
-                    <option value="French">French</option>
-                    <option value="German">German</option>
+                    <option value="English">{t('english')}</option>
+                    <option value="Arabic">{t('arabic')}</option>
+                    <option value="French">{t('french')}</option>
+                    <option value="German">{t('german')}</option>
                   </select>
                 </div>
                 <div className="form-group">
                   <label>{t('to')}</label>
                   <select value={certifiedTo} onChange={(e) => setCertifiedTo(e.target.value)}>
-                    <option value="English">English</option>
-                    <option value="Arabic">Arabic</option>
-                    <option value="French">French</option>
-                    <option value="German">German</option>
+                    <option value="English">{t('english')}</option>
+                    <option value="Arabic">{t('arabic')}</option>
+                    <option value="French">{t('french')}</option>
+                    <option value="German">{t('german')}</option>
                   </select>
                   {errors.lang && <div className="error-message">{errors.lang}</div>}
                 </div>
@@ -247,19 +265,19 @@ const Quotation = () => {
                   <div className="form-group">
                   <label>{t('from')}</label>
                   <select value={professionalFrom} onChange={(e) => setProfessionalFrom(e.target.value)}>
-                    <option value="English">English</option>
-                    <option value="Arabic">Arabic</option>
-                    <option value="French">French</option>
-                    <option value="German">German</option>
+                    <option value="English">{t('english')}</option>
+                    <option value="Arabic">{t('arabic')}</option>
+                    <option value="French">{t('french')}</option>
+                    <option value="German">{t('german')}</option>
                   </select>
                 </div>
                 <div className="form-group">
                   <label>{t('to')}</label>
                   <select value={professionalTo} onChange={(e) => setProfessionalTo(e.target.value)}>
-                    <option value="English">English</option>
-                    <option value="Arabic">Arabic</option>
-                    <option value="French">French</option>
-                    <option value="German">German</option>
+                    <option value="English">{t('english')}</option>
+                    <option value="Arabic">{t('arabic')}</option>
+                    <option value="French">{t('french')}</option>
+                    <option value="German">{t('german')}</option>
                   </select>
                    {errors.langProf && <div className="error-message">{errors.langProf}</div>}
                 </div>
@@ -320,12 +338,12 @@ const Quotation = () => {
 
       <Modal show={showModal} onHide={() => !isUploading && setShowModal(false)} centered>
         <Modal.Header closeButton={!isUploading}>
-          <Modal.Title>{t('completeYourRequest') || 'Complete Your Request'}</Modal.Title>
+          <Modal.Title>{t('completeYourRequest')}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form onSubmit={handleModalSubmit}>
             <div className="mb-3">
-              <label className="form-label">{t('name') || 'Name'}</label>
+              <label className="form-label">{t('name')}</label>
               <input 
                 type="text" 
                 className="form-control" 
@@ -336,7 +354,7 @@ const Quotation = () => {
               />
             </div>
             <div className="mb-3">
-              <label className="form-label">{t('email') || 'Email'}</label>
+              <label className="form-label">{t('email')}</label>
               <input 
                 type="email" 
                 className="form-control" 
@@ -347,7 +365,7 @@ const Quotation = () => {
               />
             </div>
             <div className="mb-3">
-              <label className="form-label">{t('message') || 'Message'}</label>
+              <label className="form-label">{t('message')}</label>
               <textarea 
                 className="form-control" 
                 rows={3}
@@ -358,15 +376,31 @@ const Quotation = () => {
             </div>
             
             {isUploading && (
-              <div className="mb-3">
+              <div className="mb-3 text-center">
                 <ProgressBar now={uploadProgress} label={`${Math.round(uploadProgress)}%`} animated />
-                <small className="text-muted d-block mt-1 text-center">Uploading files...</small>
+                <div className="d-flex justify-content-between align-items-center mt-2 px-1">
+                  <small className="text-muted">{t('modalSendingFiles')}</small>
+                  <Button 
+                    variant="link" 
+                    size="sm" 
+                    className="text-danger p-0 text-decoration-none fw-bold"
+                    onClick={handleCancelUpload}
+                  >
+                    {t('cancelUpload')}
+                  </Button>
+                </div>
               </div>
             )}
 
-            <Button variant="primary" type="submit" className="w-100" disabled={isUploading}>
-              {isUploading ? (t('sending') || 'Sending...') : (t('sendRequest') || 'Send Request')}
+            <Button variant="primary" type="submit" className="w-100 py-2 fw-bold" disabled={isUploading}>
+              {isUploading ? t('sending') : t('sendRequest')}
             </Button>
+            
+            {!isUploading && (
+               <Button variant="link" className="w-100 mt-2 text-muted text-decoration-none" onClick={() => setShowModal(false)}>
+                 {t('cancel')}
+               </Button>
+            )}
           </form>
         </Modal.Body>
       </Modal>
