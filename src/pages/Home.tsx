@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import clsx from 'clsx';
@@ -119,10 +120,32 @@ const Home = () => {
   };
 
   const c = content[language];
+  const [homeFormData, setHomeFormData] = useState({ name: '', email: '', service: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert(t('messageSentSuccess'));
+    setIsSubmitting(true);
+    
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(homeFormData)
+      });
+      
+      if (response.ok) {
+        alert(t('messageSentSuccess'));
+        setHomeFormData({ name: '', email: '', service: '', message: '' });
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      console.error(error);
+      alert(t('messageSendFailed'));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -237,16 +260,36 @@ const Home = () => {
                   <div className="row">
                     <div className="col-md-6 mb-3">
                       <label htmlFor="name" className="form-label">{c.contactName}</label>
-                      <input type="text" className="form-control" id="name" required />
+                      <input 
+                        type="text" 
+                        className="form-control" 
+                        id="name" 
+                        value={homeFormData.name}
+                        onChange={(e) => setHomeFormData({...homeFormData, name: e.target.value})}
+                        required 
+                      />
                     </div>
                     <div className="col-md-6 mb-3">
                       <label htmlFor="email" className="form-label">{c.contactEmail}</label>
-                      <input type="email" className="form-control" id="email" required />
+                      <input 
+                        type="email" 
+                        className="form-control" 
+                        id="email" 
+                        value={homeFormData.email}
+                        onChange={(e) => setHomeFormData({...homeFormData, email: e.target.value})}
+                        required 
+                      />
                     </div>
                   </div>
                   <div className="mb-3">
                     <label htmlFor="service" className="form-label">{c.contactService}</label>
-                    <select className="form-select" id="service" required defaultValue="">
+                    <select 
+                      className="form-select" 
+                      id="service" 
+                      required 
+                      value={homeFormData.service}
+                      onChange={(e) => setHomeFormData({...homeFormData, service: e.target.value})}
+                    >
                       <option value="" disabled>{c.contactSelectService}</option>
                       {c.contactServicesList.map((s, idx) => (
                         <option key={idx} value={s}>{s}</option>
@@ -255,10 +298,17 @@ const Home = () => {
                   </div>
                   <div className="mb-3">
                     <label htmlFor="message" className="form-label">{c.contactMessage}</label>
-                    <textarea className="form-control" id="message" rows={5} required></textarea>
+                    <textarea 
+                      className="form-control" 
+                      id="message" 
+                      rows={5} 
+                      value={homeFormData.message}
+                      onChange={(e) => setHomeFormData({...homeFormData, message: e.target.value})}
+                      required
+                    ></textarea>
                   </div>
-                  <button type="submit" className="btn btn-primary w-100 py-3 fw-bold">
-                    {c.send}
+                  <button type="submit" className="btn btn-primary w-100 py-3 fw-bold" disabled={isSubmitting}>
+                    {isSubmitting ? t('sending') : c.send}
                   </button>
                 </form>
               </div>

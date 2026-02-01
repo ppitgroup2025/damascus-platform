@@ -158,6 +158,31 @@ const Quotation = () => {
     // Final check before finishing
     if (uploadCancelled.current) return;
 
+    // Send Email notification to boss
+    try {
+      await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          service: `Quotation: ${activeTab === 'certified' ? 'Certified' : 'Professional'}`,
+          fileLinks: uploadedUrls,
+          // Extra metadata for the boss
+          details: `
+            Type: ${activeTab}
+            Total Price: $${totalPrice.toFixed(2)}
+            Delivery: ${deliveryDate}
+          `
+        })
+      });
+    } catch (emailError) {
+      console.error("Email notification failed:", emailError);
+      // We don't block the user if only the email notification failed, 
+      // since the files are already uploaded to Supabase.
+    }
+
     console.log("Request Data:", {
       userId: user.id,
       ...formData,

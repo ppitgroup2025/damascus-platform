@@ -56,7 +56,7 @@ Contributions are welcome for documentation, sample workflows, and tools that im
 
 For inquiries, quotes, or support:
 - Email: jalalaljabri63@gmail.com
-- Website: https://damascus-translation-ser-95c5a.firebaseapp.com/
+- Website: https://damascus-translation-services.jalalaljabri63.workers.dev
 - Phone / WhatsApp: +967-772021521
 
 ## License
