@@ -337,7 +337,7 @@ const Quotation = () => {
       </div>
 
       <Modal show={showModal} onHide={() => !isUploading && setShowModal(false)} centered>
-        <Modal.Header closeButton={!isUploading}>
+        <Modal.Header>
           <Modal.Title>{t('completeYourRequest')}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
