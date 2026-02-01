@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
+import { useLocation } from 'react-router-dom';
 
 type Language = 'en' | 'ar';
 
@@ -153,8 +154,31 @@ const localizedStrings: Record<Language, LocalizedStrings> = {
   };
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState<Language>('en');
+  const location = useLocation();
+  
+  // Initialize language from URL or default to 'en'
+  const getInitialLanguage = (): Language => {
+    const pathParts = location.pathname.split('/');
+    const langInPath = pathParts[1] as Language;
+    if (langInPath === 'en' || langInPath === 'ar') {
+      return langInPath;
+    }
+    return 'en';
+  };
 
+  const [language, setLanguage] = useState<Language>(getInitialLanguage());
+
+  // Update language when URL changes (e.g. user manually changes URL or hard refresh)
+  useEffect(() => {
+    const pathParts = location.pathname.split('/');
+    const langInPath = pathParts[1] as Language;
+    
+    if ((langInPath === 'en' || langInPath === 'ar') && langInPath !== language) {
+      setLanguage(langInPath);
+    }
+  }, [location.pathname, language]);
+
+  // Handle document attributes and font loading
   useEffect(() => {
     document.documentElement.lang = language;
     document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';

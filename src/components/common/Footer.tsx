@@ -1,26 +1,26 @@
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 const Footer = () => {
   const { language, t } = useLanguage();
 
   return (
-    <footer className="footer mt-auto">
+    <footer className="footer mt-auto py-5 bg-light border-top">
       <div className="container">
-        <div className="footer-links">
-          <a href="#" className="footer-link">{t('home')}</a>
-          <a href="#services" className="footer-link">{t('services')}</a>
-          <a href="#how" className="footer-link">{language === 'en' ? 'How it Works' : 'كيف تعمل'}</a>
-          <a href="#testimonials" className="footer-link">{t('testimonials')}</a>
-          <a href="#faq" className="footer-link">{t('faq')}</a>
-          <a href="#contact" className="footer-link">{t('contact')}</a>
-          <a href="#" className="footer-link">{t('privacyPolicy')}</a>
-          <a href="#" className="footer-link">{t('terms')}</a>
+        <div className="footer-links d-flex flex-wrap justify-content-center gap-4 mb-4">
+          <Link to={`/${language}`} className="footer-link text-decoration-none text-muted">{t('home')}</Link>
+          <Link to={`/${language}/#services`} className="footer-link text-decoration-none text-muted">{t('services')}</Link>
+          <Link to={`/${language}/#how`} className="footer-link text-decoration-none text-muted">{language === 'en' ? 'How it Works' : 'كيف تعمل'}</Link>
+          <Link to={`/${language}/#testimonials`} className="footer-link text-decoration-none text-muted">{t('testimonials')}</Link>
+          <Link to={`/${language}/#faq`} className="footer-link text-decoration-none text-muted">{t('faq')}</Link>
+          <Link to={`/${language}/#contact`} className="footer-link text-decoration-none text-muted">{t('contact')}</Link>
+          <Link to={`/${language}/about`} className="footer-link text-decoration-none text-muted">{t('about')}</Link>
         </div>
-        <div className="social-icons">
-          <a href="#" className="social-icon"><i className="fab fa-facebook-f"></i></a>
-          <a href="#" className="social-icon"><i className="fab fa-twitter"></i></a>
-          <a href="#" className="social-icon"><i className="fab fa-linkedin-in"></i></a>
-          <a href="#" className="social-icon"><i className="fab fa-instagram"></i></a>
+        <div className="social-icons d-flex justify-content-center gap-3 mb-4">
+          <a href="#" className="social-icon text-muted fs-5"><i className="fab fa-facebook-f"></i></a>
+          <a href="#" className="social-icon text-muted fs-5"><i className="fab fa-twitter"></i></a>
+          <a href="#" className="social-icon text-muted fs-5"><i className="fab fa-linkedin-in"></i></a>
+          <a href="#" className="social-icon text-muted fs-5"><i className="fab fa-instagram"></i></a>
         </div>
         <p className="mb-0 text-center">
           © {new Date().getFullYear()} {language === 'en' ? 'Damascus Translation Services. All rights reserved.' : 'دمشق لخدمات الترجمة. جميع الحقوق محفوظة.'}

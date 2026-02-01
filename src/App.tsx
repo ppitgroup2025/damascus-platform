@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
 import { UIProvider } from './contexts/UIContext';
 import { AuthProvider } from './contexts/AuthContext';
@@ -41,11 +41,9 @@ function App() {
     <LanguageProvider>
       <AuthProvider>
         <UIProvider>
-          <Router>
-            <Layout>
-              <AppRoutes />
-            </Layout>
-          </Router>
+          <Layout>
+            <AppRoutes />
+          </Layout>
         </UIProvider>
       </AuthProvider>
     </LanguageProvider>
