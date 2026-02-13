@@ -1,7 +1,9 @@
 {
+    "$schema": "node_modules/wrangler/config-schema.json",
     "name": "damascus-translation-services",
     "compatibility_date": "2026-02-13",
     "assets": {
-        "directory": "./dist"
+        "directory": "./dist",
+        "not_found_handling": "single-page-application"
     }
 }
