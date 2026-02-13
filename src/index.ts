@@ -37,7 +37,7 @@ export default {
                     },
                     body: JSON.stringify({
                         from: 'Damascus Translation <onboarding@resend.dev>',
-                        to: ['damascustranslation@gmail.com'], // Updated recipient
+                        to: ['damascustranslation@gmail.com'],
                         subject: `${isQuotation ? '⚡ QUOTE' : '✉️ CONTACT'}: ${name}`,
                         html: htmlBody,
                     }),
@@ -60,20 +60,18 @@ export default {
             }
 
             // Normal Static Asset Fetching
-            let response = await env.ASSETS.fetch(request);
+            const response = await env.ASSETS.fetch(request);
 
             // SPA Fallback: If 404 on a page route (no file extension), serve index.html
-            // We check for !url.pathname.includes('.') to avoid serving index.html for missing images/css
             if (response.status === 404 && !url.pathname.includes('.')) {
-                const indexUrl = new URL('/index.html', request.url);
-                return env.ASSETS.fetch(indexUrl);
+                const indexRequest = new Request(new URL('/index.html', request.url));
+                return env.ASSETS.fetch(indexRequest);
             }
 
             return response;
         } catch (err: any) {
             console.error('Worker error:', err);
-            // Return a simple friendly message for now, or just let Cloudflare handle it
-            return new Response(`Oops! Something went wrong. If this persists, please contact support. (Error: ${err.message})`, {
+            return new Response(`Diagnostic Check: Refresh Error. (Details: ${err.message})`, {
                 status: 500,
                 headers: { 'Content-Type': 'text/plain' }
             });
