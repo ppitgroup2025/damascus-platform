@@ -2,7 +2,12 @@ export const onRequestPost = async ({ request, env }: { request: Request; env: {
     try {
         const data = await request.json() as any;
         const { name, email, service, message, fileLinks, details } = data;
+
         const isQuotation = service && (service.includes('Quotation') || service.includes('quotation'));
+
+        if (!env.RESEND_API_KEY) {
+            throw new Error('Missing RESEND_API_KEY in environment variables');
+        }
 
         // Professional Email Styling
         const emailStyles = `font-family: sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;`;

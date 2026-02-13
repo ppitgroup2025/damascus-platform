@@ -2,5 +2,8 @@
     "$schema": "node_modules/wrangler/config-schema.json",
     "name": "damascus-translation-services",
     "compatibility_date": "2026-02-13",
-    "pages_build_output_dir": "./dist"
+    "pages_build_output_dir": "./dist",
+    "vars": {
+        "RESEND_API_KEY": "re_J4NTMnmL_8qFTDMiwxWD4bXiUYR58twiD"
+    }
 }

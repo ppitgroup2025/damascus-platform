@@ -12,6 +12,7 @@ const AuthModal = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
   const [loading, setLoading] = useState(false);
 
   // Close when keydown ESC
@@ -39,13 +40,27 @@ const AuthModal = () => {
   }, [isAuthModalOpen]);
 
   const handleSignup = async () => {
-    setError('');
-    setLoading(true);
+    /* 
+       We only close the modal if we have an active session (user is logged in).
+       If email confirmation is required, Supabase returns a User but Session is null.
+       In that case, we show a success message telling the user to check their email.
+    */
     try {
-      await signup(email, password);
-      closeAuthModal();
+      const data = await signup(email, password);
+      if (data?.user && !data?.session) {
+         setError('');
+         // We use a specific success state or just borrow setError with a different color/prefix for now to keep it simple, 
+         // but better to add a success state.
+         // Let's add a local success message state.
+         setSuccessMessage(t('checkEmailConfirmation') || 'Account created! Please check your email to confirm.');
+         // Do NOT close the modal. Let them see the message.
+      } else {
+         // Session active, close modal
+         closeAuthModal();
+      }
     } catch (err: any) {
       setError(err.message || 'Failed to create account');
+      setSuccessMessage('');
     } finally {
       setLoading(false);
     }
@@ -53,12 +68,20 @@ const AuthModal = () => {
 
   const handleLogin = async () => {
     setError('');
+    setSuccessMessage('');
     setLoading(true);
     try {
       await login(email, password);
+      // If we get here, login successful
       closeAuthModal();
     } catch (err: any) {
-      setError(err.message || 'Failed to log in');
+      // Supabase "Invalid login credentials" is generic.
+      // It could mean wrong password OR email not confirmed.
+      if (err.message.includes('Invalid login credentials')) {
+         setError(t('invalidCredentials') || 'Invalid login credentials. If you just signed up, please check your email.');
+      } else {
+         setError(err.message || 'Failed to log in');
+      }
     } finally {
       setLoading(false);
     }
@@ -117,6 +140,14 @@ const AuthModal = () => {
                 style={{ color: 'red', fontSize: '0.8rem', marginBottom: '10px' }}
               >
                 {error}
+              </div>
+            )}
+            {successMessage && (
+              <div
+                id="auth-success"
+                style={{ color: 'green', fontSize: '0.8rem', marginBottom: '10px' }}
+              >
+                {successMessage}
               </div>
             )}
             <button

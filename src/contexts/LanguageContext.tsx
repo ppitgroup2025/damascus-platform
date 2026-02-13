@@ -98,6 +98,8 @@ const localizedStrings: Record<Language, LocalizedStrings> = {
       german: 'German',
       loginToProceed: 'Please log in first to proceed with your request',
       sessionExpired: 'Session expired. Please log in again.',
+      checkEmailConfirmation: 'Account created! Please check your email to confirm.',
+      invalidCredentials: 'Invalid login credentials. If you just signed up, please check your email.',
     },
     ar: {
       fileSelected: (count: number) => `${count} ملف(ملفات) مختارة.`,
@@ -180,6 +182,8 @@ const localizedStrings: Record<Language, LocalizedStrings> = {
       german: 'الألمانية',
       loginToProceed: 'يرجى تسجيل الدخول أولاً لمتابعة طلبك',
       sessionExpired: 'انتهت الجلسة. يرجى تسجيل الدخول مرة أخرى.',
+      checkEmailConfirmation: 'تم إنشاء الحساب! يرجى التحقق من بريدك الإلكتروني للتأكيد.',
+      invalidCredentials: 'بيانات الاعتماد غير صالحة. إذا قمت بالتسجيل للتو، يرجى التحقق من بريدك الإلكتروني.',
     }
   };
 
