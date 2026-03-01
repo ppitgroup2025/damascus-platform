@@ -70,7 +70,7 @@ export const onRequestPost = async ({ request, env }: { request: Request; env: {
             },
             body: JSON.stringify({
                 from: 'Damascus Translation <notifications@damascustranslations.com>',
-                to: ['damascustranslation@gmail.com'],
+                to: ['ppitgroup2025@gmail.com'],
                 reply_to: email,
                 subject: `${isQuotation ? '⚡ QUOTE' : '✉️ CONTACT'}: ${name}`,
                 html: htmlBody,
