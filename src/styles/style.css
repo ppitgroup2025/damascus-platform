@@ -604,32 +604,36 @@ body {
     }
 }
 
-/* On smaller screens, hide the side arrows... */
+/* On smaller screens, position arrows on the middle sides of the card edges */
 @media (max-width: 991.98px) {
+    #resourcesCarousel {
+        padding: 0 15px; /* Add padding so arrows don't touch screen edges */
+    }
+    
     .custom-carousel-control-resources,
     .custom-carousel-control-prev-resources {
-        display: none;
+        display: flex !important;
+        position: absolute !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        z-index: 10;
+        width: 40px !important;
+        height: 40px !important;
     }
     
-    /* ...and create a new navigation area below the carousel instead. */
+    .custom-carousel-control-prev-resources {
+        left: -10px !important; 
+        right: auto !important;
+    }
+    
+    .custom-carousel-control-resources {
+        right: -10px !important;
+        left: auto !important;
+    }
+    
+    /* Hide the old bottom layout spacer */
     #resourcesCarousel::after {
-        content: ''; /* Required for the nav to appear */
-        display: block;
-        text-align: center;
-        margin-top: 1.5rem;
-    }
-    
-    #resourcesCarousel .carousel-control-prev,
-    #resourcesCarousel .carousel-control-next {
-        display: inline-flex; /* Make them visible again */
-        position: relative;
-        transform: none;
-        width: 45px;
-        height: 45px;
-        opacity: 1;
-        background-color: #fff;
-        box-shadow: 0 4px 12px rgba(30, 41, 59, 0.1);
-        margin: 0 0.5rem;
+        display: none !important;
     }
 }
 
