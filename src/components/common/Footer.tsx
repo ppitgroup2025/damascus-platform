@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer className="footer mt-auto py-5 bg-light border-top">
       <div className="container">
-        <div className="footer-links d-flex flex-wrap justify-content-center gap-4 mb-4">
+        <div className="footer-links d-flex flex-column flex-md-row justify-content-center align-items-center gap-3 gap-md-4 mb-4">
           <Link to={`/${language}`} className="footer-link text-decoration-none text-muted">{t('home')}</Link>
           <Link to={`/${language}/#services`} className="footer-link text-decoration-none text-muted">{t('services')}</Link>
           <Link to={`/${language}/#how`} className="footer-link text-decoration-none text-muted">{language === 'en' ? 'How it Works' : 'كيف تعمل'}</Link>

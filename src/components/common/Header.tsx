@@ -52,8 +52,8 @@ const Header = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className={clsx("collapse navbar-collapse flex-grow-0", { "show": !isNavCollapsed })} id="navbarNav">
-          <ul className="navbar-nav ms-auto align-items-center gap-2">
+        <div className={clsx("collapse navbar-collapse", { "show": !isNavCollapsed })} id="navbarNav">
+          <ul className="navbar-nav ms-auto align-items-center gap-2 pt-3 pt-lg-0">
             <li className="nav-item">
               <Link className="nav-link" to={`/${language}`} onClick={closeNav}>{t('home')}</Link>
             </li>
