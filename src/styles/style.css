@@ -106,10 +106,20 @@ body {
         margin-bottom: 0.5rem;
         padding: 0.75rem 1rem;
         text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 50px; /* Force consistent height */
+        line-height: 1;
     }
     .navbar-nav .btn {
         width: 100%;
         margin-bottom: 0.5rem;
+        padding: 0.75rem 1rem;
+        min-height: 50px; /* Match nav-link height */
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -298,14 +308,18 @@ body {
 /* Responsiveness */
 @media (max-width: 991px) {
   .hero-3d {
-    padding: 80px 0;
+    padding: 140px 0 80px 0; /* Increased top padding to prevent overlap */
     text-align: center;
+  }
+  .hero-3d .hero-row {
+    margin-top: 0; /* Reset desktop lift on mobile */
   }
   [dir="rtl"] .hero-3d .hero-left {
     text-align: center;
   }
   .hero-title-3d {
     font-size: 2.8rem;
+    margin-top: 20px;
   }
   [dir="rtl"] .hero-title-3d {
     font-size: 2.2rem;
