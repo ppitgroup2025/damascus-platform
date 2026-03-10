@@ -151,40 +151,50 @@ const Home = () => {
   return (
     <div>
       {/* HERO SECTION */}
-      <section className="hero-3d">
+      <section className="hero-clean">
         <div className="container">
           <div className="row align-items-center hero-row">
+
             <div className="col-lg-6 hero-left order-lg-1">
-              <h1 className="hero-title-3d">
+
+              <h1 className="hero-title">
                 {c.heroTitle}
               </h1>
-              <p className="hero-desc-3d">
+
+              <p className="hero-desc">
                 {c.heroDesc}
               </p>
-              <div className="hero-features-3d">
+
+              <ul className="hero-list">
                 {c.heroPoints.map((point, idx) => (
-                  <div key={idx} className="hero-feature">
+                  <li key={idx} className="hero-list-item">
                     <i className="fas fa-check-circle"></i>
                     <span>{point}</span>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
+
               <div className="hero-actions">
                 <Link
                   to={`/${language}/quotation`}
-                  className="btn-hero-3d"
+                  className="btn-hero-primary"
                 >
                   {t('getQuote')}
                 </Link>
               </div>
+
             </div>
+
             <div className="col-lg-6 hero-right text-center order-lg-2">
-              <img
-                src="/images/translation-illustration3.png"
-                className="hero-3d-image"
-                alt="3D translation services"
-              />
+              <div className="hero-image-container">
+                <img
+                  src="/images/translation-illustration.png"
+                  className="hero-image"
+                  alt="Translation services"
+                />
+              </div>
             </div>
+
           </div>
         </div>
       </section>

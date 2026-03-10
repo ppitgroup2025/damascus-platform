@@ -141,7 +141,15 @@
       max-width: 98% !important;
     }
     .tabs {
-      flex-wrap: wrap;
+      flex-wrap: nowrap; /* Prevent stacking */
+      width: 100%;
+    }
+    .tab {
+      flex: 1; /* Equal width */
+      text-align: center;
+      padding: 12px 5px;
+      font-size: 14px;
+      white-space: nowrap; /* Keep text on one line */
     }
     .continue-btn,
     .goback-btn {

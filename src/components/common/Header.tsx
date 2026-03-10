@@ -32,10 +32,18 @@ const Header = () => {
   };
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    const handleScroll = () => {
+      const scrolled = window.scrollY > 50;
+      setIsScrolled(scrolled);
+      
+      // Auto-collapse mobile menu on scroll for smooth user experience
+      if (window.scrollY > 20 && !isNavCollapsed) {
+        setIsNavCollapsed(true);
+      }
+    };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isNavCollapsed]);
 
   const closeNav = () => setIsNavCollapsed(true);
 
