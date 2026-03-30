@@ -211,7 +211,7 @@ const Home = () => {
                     <i className={service.icon}></i>
                   </div>
                   <h3 className="service-title">{service.title}</h3>
-                  <p dangerouslySetInnerHTML={{ __html: service.desc }} />
+                  <p dir={language === 'ar' ? 'rtl' : 'ltr'} style={{ textAlign: language === 'ar' ? 'right' : 'left' }} dangerouslySetInnerHTML={{ __html: service.desc }} />
                   <Link to={service.link} className="service-card-cta">
                     <span>{c.more}</span>
                     <i className={clsx("fas", language === 'ar' ? 'fa-arrow-left' : 'fa-arrow-right')}></i>
