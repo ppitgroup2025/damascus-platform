@@ -11,8 +11,6 @@ const Footer = () => {
           <Link to={`/${language}`} className="footer-link text-decoration-none text-muted">{t('home')}</Link>
           <Link to={`/${language}/#services`} className="footer-link text-decoration-none text-muted">{t('services')}</Link>
           <Link to={`/${language}/#how`} className="footer-link text-decoration-none text-muted">{language === 'en' ? 'How it Works' : 'كيف تعمل'}</Link>
-          <Link to={`/${language}/#testimonials`} className="footer-link text-decoration-none text-muted">{t('testimonials')}</Link>
-          <Link to={`/${language}/#faq`} className="footer-link text-decoration-none text-muted">{t('faq')}</Link>
           <Link to={`/${language}/#contact`} className="footer-link text-decoration-none text-muted">{t('contact')}</Link>
           <Link to={`/${language}/about`} className="footer-link text-decoration-none text-muted">{t('about')}</Link>
         </div>

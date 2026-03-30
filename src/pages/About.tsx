@@ -12,16 +12,9 @@ const About = () => {
       missionP1: "At Damascus Translation, our mission is to deliver flawless and culturally nuanced language solutions that empower our clients to succeed in the global marketplace. We believe that every word matters and strive to provide translations that are not only accurate but also resonate with the target audience.",
       missionP2: "We are committed to leveraging a combination of expert human linguists and cutting-edge technology to ensure quality, speed, and confidentiality in everything we do.",
       missionAlt: "A diverse team collaborating in a modern office",
-      teamTitle: "Meet Our Team",
-      members: [
-        { name: "John Doe", role: "Founder & Lead Linguist", img: "https://randomuser.me/api/portraits/men/32.jpg" },
-        { name: "Jane Smith", role: "Head of Operations", img: "https://randomuser.me/api/portraits/women/44.jpg" },
-        { name: "Peter Jones", role: "Project Manager", img: "https://randomuser.me/api/portraits/men/34.jpg" }
-      ],
       ctaTitle: "Ready to Work With Us?",
       ctaText: "Let's discuss your translation needs. Get a free, no-obligation quote from our team today.",
-      ctaBtn: "Get a Quote",
-      memberAlt: "Team Member"
+      ctaBtn: "Get a Quote"
     },
     ar: {
       pageTitle: "قصتنا",
@@ -30,16 +23,9 @@ const About = () => {
       missionP1: "في دمشق للترجمة، مهمتنا هي تقديم حلول لغوية خالية من العيوب ومتناغمة ثقافيًا تمكّن عملاءنا من النجاح في السوق العالمي. نؤمن بأن كل كلمة لها أهميتها ونسعى لتقديم ترجمات ليست دقيقة فحسب، بل يتردد صداها لدى الجمهور المستهدف.",
       missionP2: "نحن ملتزمون بالجمع بين اللغويين الخبراء وأحدث التقنيات لضمان الجودة والسرعة والسرية في كل ما نقوم به.",
       missionAlt: "فريق متنوع يتعاون في مكتب حديث",
-      teamTitle: "تعرف على فريقنا",
-      members: [
-        { name: "جون دو", role: "المؤسس وكبير اللغويين", img: "https://randomuser.me/api/portraits/men/32.jpg" },
-        { name: "جين سميث", role: "مديرة العمليات", img: "https://randomuser.me/api/portraits/women/44.jpg" },
-        { name: "بيتر جونز", role: "مدير المشاريع", img: "https://randomuser.me/api/portraits/men/34.jpg" }
-      ],
       ctaTitle: "هل أنت مستعد للعمل معنا؟",
       ctaText: "دعنا نناقش احتياجات الترجمة الخاصة بك. احصل على عرض أسعار مجاني وغير ملزم من فريقنا اليوم.",
-      ctaBtn: "احصل على عرض سعر",
-      memberAlt: "عضو في الفريق"
+      ctaBtn: "احصل على عرض سعر"
     }
   };
 
@@ -75,23 +61,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Meet the Team Section */}
-      <section className="team-section">
-        <div className="container">
-          <h2 className="section-title">{c.teamTitle}</h2>
-          <div className="row g-4">
-            {c.members.map((member, index) => (
-              <div className="col-lg-4 col-md-6" key={index}>
-                <div className="team-card">
-                  <img src={member.img} className="team-card-img" alt={c.memberAlt} />
-                  <h5 className="team-card-name">{member.name}</h5>
-                  <p className="team-card-role">{member.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Call to Action Section */}
       <section className="cta-section">
