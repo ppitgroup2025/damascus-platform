@@ -53,8 +53,12 @@
     --navbar-height: 80px;
 }
 
-body, h1, h2, h3, h4, h5, h6, p, a, li, .btn, .navbar-brand {
+[lang="en"], [lang="en"] body, [lang="en"] h1, [lang="en"] h2, [lang="en"] h3, [lang="en"] h4, [lang="en"] h5, [lang="en"] h6, [lang="en"] p, [lang="en"] a, [lang="en"] li, [lang="en"] .btn, [lang="en"] .navbar-brand {
     font-family: 'League Spartan', sans-serif !important;
+}
+
+[lang="ar"], [lang="ar"] body, [lang="ar"] h1, [lang="ar"] h2, [lang="ar"] h3, [lang="ar"] h4, [lang="ar"] h5, [lang="ar"] h6, [lang="ar"] p, [lang="ar"] a, [lang="ar"] li, [lang="ar"] .btn, [lang="ar"] .navbar-brand {
+    font-family: 'Readex Pro', sans-serif !important;
 }
 
 body {
@@ -76,19 +80,27 @@ body {
     height: 45px;
     width: auto;
 }
-.nav-link {
-    color: var(--dark);
-    border-radius: 5px;
-    font-weight: 500;
-    margin-right: 1rem;
-    transition: color 0.2s, background-color 0.2s;
+/* Unified Navbar Items */
+.navbar-custom-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px; /* Unify height */
+    padding: 0 1.25rem;
+    margin: 0 0.25rem;
+    border-radius: 6px; /* Unify shape */
+    border: 1px solid var(--primary); /* Logo blue */
+    background-color: transparent;
+    color: var(--primary) !important;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
 }
-.navbar-nav .nav-link {
-    border: 1px solid var(--secondary);
-}
-.nav-link:hover,
-.nav-link.active {
-    background-color: var(--secondary);
+.navbar-custom-btn:hover,
+.navbar-custom-btn.active {
+    background-color: var(--primary);
+    color: #fff !important;
 }
 
 /* Navbar Responsiveness Fixes */
@@ -109,14 +121,14 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        min-height: 50px; /* Force consistent height */
+        min-height: 44px; /* Force consistent height */
         line-height: 1;
     }
-    .navbar-nav .btn {
+    .navbar-nav .navbar-custom-btn {
         width: 100%;
         margin-bottom: 0.5rem;
         padding: 0.75rem 1rem;
-        min-height: 50px; /* Match nav-link height */
+        min-height: 44px; /* Match nav-link height */
         display: flex;
         align-items: center;
         justify-content: center;

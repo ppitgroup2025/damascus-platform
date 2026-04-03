@@ -62,38 +62,38 @@ const Header = () => {
         </button>
         <div className={clsx("collapse navbar-collapse", { "show": !isNavCollapsed })} id="navbarNav">
           <ul className={clsx("navbar-nav align-items-center gap-2 pt-3 pt-lg-0", language === 'ar' ? 'me-auto' : 'ms-auto')}>
-            <li className="nav-item">
-              <Link className="nav-link" to={`/${language}`} onClick={closeNav}>{t('home')}</Link>
+            <li className="nav-item w-100 w-lg-auto">
+              <Link className="navbar-custom-btn w-100" to={`/${language}`} onClick={closeNav}>{t('home')}</Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to={`/${language}/#services`} onClick={closeNav}>{t('services')}</Link>
+            <li className="nav-item w-100 w-lg-auto">
+              <Link className="navbar-custom-btn w-100" to={`/${language}/#services`} onClick={closeNav}>{t('services')}</Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to={`/${language}/about`} onClick={closeNav}>{t('about')}</Link>
+            <li className="nav-item w-100 w-lg-auto">
+              <Link className="navbar-custom-btn w-100" to={`/${language}/about`} onClick={closeNav}>{t('about')}</Link>
             </li>
-            <li className="nav-item">
-              <button className="nav-link btn btn-link text-decoration-none fw-bold" onClick={toggleLanguage}>
+            <li className="nav-item w-100 w-lg-auto">
+              <button className="navbar-custom-btn fw-bold w-100" onClick={toggleLanguage}>
                 {language === 'en' ? 'AR' : 'EN'}
               </button>
             </li>
-            <li className="nav-item">
+            <li className="nav-item w-100 w-lg-auto">
               {currentUser ? (
-                <div className="dropdown">
+                <div className="dropdown w-100">
                   <button 
-                    className="btn btn-link nav-link dropdown-toggle d-flex align-items-center gap-2 border-0" 
+                    className="navbar-custom-btn dropdown-toggle w-100 d-flex align-items-center justify-content-center gap-2" 
                     type="button" 
                     id="userDropdown" 
                     data-bs-toggle="dropdown" 
                     aria-expanded="false"
                   >
                     <div 
-                      className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" 
-                      style={{ width: '32px', height: '32px', fontSize: '14px' }}
+                      className="rounded-circle d-flex align-items-center justify-content-center" 
+                      style={{ width: '28px', height: '28px', fontSize: '12px', backgroundColor: 'var(--primary)', color: 'white' }}
                     >
                       {currentUser.email?.[0].toUpperCase() || 'U'}
                     </div>
                   </button>
-                  <ul className={clsx("dropdown-menu dropdown-menu-end shadow-sm", { "text-end": language === 'ar' })} aria-labelledby="userDropdown">
+                  <ul className={clsx("dropdown-menu dropdown-menu-end shadow-sm", { "text-end": language === 'ar', "w-100": true })} aria-labelledby="userDropdown">
                     <li className="px-3 py-2 border-bottom small text-muted">
                       {currentUser.email}
                     </li>
@@ -107,18 +107,18 @@ const Header = () => {
                 </div>
               ) : (
                 <button 
-                  className="btn btn-outline-primary"
+                  className="navbar-custom-btn w-100 fw-bold"
                   onClick={() => {
                     closeNav();
                     openAuthModal();
                   }}
                 >
-                  {language === 'en' ? 'Sign Up / Log In' : 'تسجيل / دخول'}
+                  {language === 'en' ? 'Login' : 'تسجيل الدخول'}
                 </button>
               )}
             </li>
-            <li className="nav-item">
-              <Link to={`/${language}/quotation`} className="btn btn-primary px-4 py-2 fw-bold" onClick={closeNav}>
+            <li className="nav-item w-100 w-lg-auto">
+              <Link to={`/${language}/quotation`} className="navbar-custom-btn fw-bold w-100" onClick={closeNav}>
                 {t('getQuote')}
               </Link>
             </li>
