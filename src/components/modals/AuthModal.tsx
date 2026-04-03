@@ -120,6 +120,7 @@ const AuthModal = () => {
               type="email"
               id="auth-email"
               className="form-control mb-3"
+              style={{ textAlign: dir === 'rtl' ? 'right' : 'inherit' }}
               placeholder={t('emailComponents')}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -129,6 +130,7 @@ const AuthModal = () => {
               type="password"
               id="auth-password"
               className="form-control mb-3"
+              style={{ textAlign: dir === 'rtl' ? 'right' : 'inherit' }}
               placeholder={t('password')}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
