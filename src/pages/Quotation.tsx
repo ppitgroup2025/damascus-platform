@@ -48,13 +48,13 @@ const Quotation = () => {
     const isPriority = (activeTab === 'certified' ? certifiedUrgency : professionalUrgency) === 'priority';
 
     if (activeTab === 'certified') {
-      const basePrice = 31.75;
-      const urgencyFee = (isPriority && certifiedPages > 0) ? 7.94 : 0;
+      const basePrice = 10.00;
+      const urgencyFee = (isPriority && certifiedPages > 0) ? 2.50 : 0;
       price = certifiedPages > 0 ? (certifiedPages * basePrice + urgencyFee) : 0;
       days = isPriority ? 1 : 2;
     } else {
-      const rate = 0.1;
-      const urgencyFee = (isPriority && professionalWords > 0) ? 4.75 : 0;
+      const rate = 0.04;
+      const urgencyFee = (isPriority && professionalWords > 0) ? 1.00 : 0;
       price = professionalWords > 0 ? (professionalWords * rate + urgencyFee) : 0;
       days = isPriority ? 1 : 2;
     }
