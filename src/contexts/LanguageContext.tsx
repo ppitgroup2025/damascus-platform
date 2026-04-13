@@ -98,6 +98,7 @@ const localizedStrings: Record<Language, LocalizedStrings> = {
       sessionExpired: 'Session expired. Please log in again.',
       checkEmailConfirmation: 'Account created! Please check your email to confirm.',
       invalidCredentials: 'Invalid login credentials. If you just signed up, please check your email.',
+      priceNote: 'This is an estimated price for normal translation. Complex or specialized texts may incur additional costs',
     },
     ar: {
       fileSelected: (count: number) => `${count} ملف(ملفات) مختارة.`,
@@ -180,6 +181,7 @@ const localizedStrings: Record<Language, LocalizedStrings> = {
       sessionExpired: 'انتهت الجلسة. يرجى تسجيل الدخول مرة أخرى.',
       checkEmailConfirmation: 'تم إنشاء الحساب! يرجى التحقق من بريدك الإلكتروني للتأكيد.',
       invalidCredentials: 'بيانات الاعتماد غير صالحة. إذا قمت بالتسجيل للتو، يرجى التحقق من بريدك الإلكتروني.',
+      priceNote: 'هذا السعر تقديري للنصوص العامة؛ قد تختلف التكلفة بناءً على طبيعة النص أو التخصص المطلوب.',
     }
   };
 

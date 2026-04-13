@@ -48,14 +48,12 @@ const Quotation = () => {
     const isPriority = (activeTab === 'certified' ? certifiedUrgency : professionalUrgency) === 'priority';
 
     if (activeTab === 'certified') {
-      const basePrice = 10.00;
-      const urgencyFee = (isPriority && certifiedPages > 0) ? 2.50 : 0;
-      price = certifiedPages > 0 ? (certifiedPages * basePrice + urgencyFee) : 0;
+      const basePrice = isPriority ? 14.00 : 10.00;
+      price = certifiedPages > 0 ? (certifiedPages * basePrice) : 0;
       days = isPriority ? 1 : 2;
     } else {
-      const rate = 0.04;
-      const urgencyFee = (isPriority && professionalWords > 0) ? 1.00 : 0;
-      price = professionalWords > 0 ? (professionalWords * rate + urgencyFee) : 0;
+      const rate = isPriority ? 0.056 : 0.04;
+      price = professionalWords > 0 ? (professionalWords * rate) : 0;
       days = isPriority ? 1 : 2;
     }
 
@@ -356,6 +354,11 @@ const Quotation = () => {
             <div>{t('delivery')}: {deliveryDate}</div>
             <div className="quote-total">
                {t('totalPrice')}: ${totalPrice.toFixed(2)}
+            </div>
+            <div className="quote-note mt-3">
+              <small className="text-muted" style={{ fontStyle: 'italic', fontSize: '0.85rem', display: 'block', lineHeight: '1.4' }}>
+                {t('priceNote')}
+              </small>
             </div>
           </div>
         </div>
