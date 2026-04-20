@@ -205,7 +205,7 @@ const Quotation = () => {
 
 
   return (
-    <div className="container mt-5">
+    <div className="container" style={{ marginTop: '120px', marginBottom: '80px' }}>
       <div className="content-wrapper">
         <div className="tabs">
           <div 

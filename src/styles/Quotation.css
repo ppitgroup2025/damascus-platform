@@ -81,8 +81,9 @@
   input[type="number"],
   select {
     width: 100%;
-    padding: 8px;
+    padding: 12px 10px; /* Increased for Arabic font clearance */
     box-sizing: border-box;
+    font-size: 16px; /* Slightly larger for readability */
   }
   .radio-group {
     display: flex;
